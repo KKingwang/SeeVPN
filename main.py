@@ -12,10 +12,11 @@ class StatusBarApp(rumps.App):
     def __init__(self):
         super(StatusBarApp, self).__init__("SeeVPN", icon=None, quit_button=None)
         self.menu = ["🐱开关Shadowrocket",
-                     rumps.MenuItem("", callback=None),
-                     rumps.MenuItem("👇使用开关请下载快捷指令👇", callback=None),  # 禁用的菜单项
+                     "----------------------------",
+                     "👇使用开关请下载快捷指令👇",
                      "⏬下载快捷指令",
-                     rumps.MenuItem("", callback=None),
+                     "----------------------------",
+                     "🌐关于Github",
                      "⏏️退出"]
 
     @rumps.clicked("🐱开关Shadowrocket")
@@ -25,6 +26,10 @@ class StatusBarApp(rumps.App):
     @rumps.clicked("⏬下载快捷指令")
     def download_shortcut(self, _):
         webbrowser.open("https://www.icloud.com/shortcuts/492fc4cdeb1b4c7b8db3c9b9858778fc")
+
+    @rumps.clicked("🌐关于Github")
+    def particulars_text(self, _):
+        webbrowser.open("https://github.com/KKingwang/SeeVPN")
 
     @rumps.clicked('⏏️退出')
     def clean_up_before_quit(self, _):
